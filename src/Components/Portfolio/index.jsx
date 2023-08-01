@@ -109,7 +109,7 @@ const Portfolio = () => {
                             padding: 0,
                             overflow: "hidden",
                             cursor: "pointer",
-                            width: "50vw",
+                            width: "39vw",
                             transition: "250ms"
                         }}>
 
@@ -119,13 +119,13 @@ const Portfolio = () => {
                                 gap: ".5rem",
                                 padding: ".75rem .75rem 0"
                             }}>
-                                <img src={item.img} alt={item.value} style={{ width: "8vw" }} />
-                                <h5 style={{ fontSize: "5vw", fontWeight: "900", marginBottom: "0", color: "white" }}>{item.name}</h5>
+                                <img src={item.img} alt={item.value} style={{ width: "7vw" }} />
+                                <h5 style={{ fontSize: "3.9vw", fontWeight: "900", marginBottom: "0", color: "white" }}>{item.name}</h5>
                             </div>
                             <div style={{
                                 color: "white",
-                                marginTop: "1rem",
-                                padding: "1rem",
+                                marginTop: "0rem",
+                                padding: ".6rem 1rem",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "space-between",

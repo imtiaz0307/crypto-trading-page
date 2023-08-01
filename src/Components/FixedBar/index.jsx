@@ -3,7 +3,7 @@ import { BsWallet2 } from "react-icons/bs"
 import { CgArrowsExchangeAltV } from "react-icons/cg"
 import { MdOutlineManageHistory } from "react-icons/md"
 
-const FixedBar = () => {
+const FixedBar = ({ fixedBarRef }) => {
     return (
         <div style={{
             position: "fixed",
@@ -16,7 +16,7 @@ const FixedBar = () => {
             display: "flex",
             gap: "1rem",
             zIndex: 999999
-        }}>
+        }} ref={fixedBarRef}>
             <div style={{
                 flex: 1,
                 display: "flex",
