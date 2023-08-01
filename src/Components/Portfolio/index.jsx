@@ -30,7 +30,7 @@ const Portfolio = () => {
 
     return (
         <div>
-            <h6 style={{ color: "white", fontSize: "1rem", fontWeight: 600, padding: "1rem 1rem .3rem" }}>Portfolio</h6>
+            <h6 style={{ color: "white", fontSize: "4vw", fontWeight: 600, padding: "1rem 1rem .3rem" }}>Portfolio</h6>
             <Swiper
                 slidesPerView={"auto"}
                 spaceBetween={10}
@@ -109,7 +109,7 @@ const Portfolio = () => {
                             padding: 0,
                             overflow: "hidden",
                             cursor: "pointer",
-                            width: "200px",
+                            width: "50vw",
                             transition: "250ms"
                         }}>
 
@@ -119,8 +119,8 @@ const Portfolio = () => {
                                 gap: ".5rem",
                                 padding: ".75rem .75rem 0"
                             }}>
-                                <img src={item.img} alt={item.value} style={{ width: "40px" }} />
-                                <h5 style={{ fontSize: "1.4rem", fontWeight: "900", marginBottom: "0", color: "white" }}>{item.name}</h5>
+                                <img src={item.img} alt={item.value} style={{ width: "8vw" }} />
+                                <h5 style={{ fontSize: "5vw", fontWeight: "900", marginBottom: "0", color: "white" }}>{item.name}</h5>
                             </div>
                             <div style={{
                                 color: "white",
@@ -131,12 +131,12 @@ const Portfolio = () => {
                                 justifyContent: "space-between",
                                 gap: "1rem"
                             }}>
-                                <h4 style={{ fontSize: "1.2rem" }}>$8,322</h4>
+                                <h4 style={{ fontSize: "5vw" }}>$8,322</h4>
                                 <div
                                     style={{
                                         display: "flex",
                                         color: "#21c8d7",
-                                        fontSize: ".6rem",
+                                        fontSize: "2.6vw",
                                         alignItems: "center",
                                         gap: ".2rem"
                                     }}>
@@ -148,7 +148,7 @@ const Portfolio = () => {
                                 color: "white",
                                 display: "flex",
                                 alignItems: "center",
-                                fontSize: ".7rem",
+                                fontSize: "2.8vw",
                                 padding: "0 1rem",
                                 gap: ".5rem"
                             }}>
@@ -160,7 +160,7 @@ const Portfolio = () => {
                                 }}>$233</div>
                                 <span style={{ color: "#a8a8a8" }}>since 24h</span>
                             </div>
-                            <div style={{ width: "100%", marginTop: "-3rem" }}>
+                            <div style={{ width: "100%", marginTop: "-4rem" }}>
                                 <Chart id="chart-currently" options={Currentlysale.options} series={Currentlysale.series} type="area" height={"140px"} width={"118%"} style={{
                                     transform: "translateX(-8%) translateY(46px)",
                                 }} />

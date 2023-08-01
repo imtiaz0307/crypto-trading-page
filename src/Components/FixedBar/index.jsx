@@ -7,7 +7,7 @@ const FixedBar = () => {
     return (
         <div style={{
             position: "fixed",
-            bottom: "10px",
+            bottom: "0px",
             left: "10px",
             width: "calc(100% - 20px)",
             background: "#171e2a",
@@ -23,13 +23,13 @@ const FixedBar = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 gap: ".4rem",
-                fontSize: "1.1rem",
                 fontWeight: "500",
                 cursor: "pointer",
                 color: "white",
+                fontSize: "6vw"
             }}>
-                <BiHomeSmile size={30} />
-                <p>Home</p>
+                <BiHomeSmile />
+                <p style={{ fontSize: "3vw" }}>Home</p>
             </div>
             <div style={{
                 flex: 1,
@@ -37,13 +37,13 @@ const FixedBar = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 gap: ".4rem",
-                fontSize: "1.1rem",
                 fontWeight: "500",
                 cursor: "pointer",
-                color: "#a8a8a8"
+                color: "#a8a8a8",
+                fontSize: "6vw"
             }}>
-                <BsWallet2 size={30} style={{ scale: ".8" }} />
-                <p>Wallet</p>
+                <BsWallet2 style={{ scale: ".8" }} />
+                <p style={{ fontSize: "3vw" }}>Wallet</p>
             </div>
             <div style={{
                 flex: 1,
@@ -51,7 +51,6 @@ const FixedBar = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 gap: ".4rem",
-                fontSize: "1.1rem",
                 fontWeight: "500",
                 cursor: "pointer",
                 color: "#a8a8a8"
@@ -64,11 +63,12 @@ const FixedBar = () => {
                     alignItems: "center",
                     scale: "2.5",
                     transformOrigin: "bottom center",
-                    borderRadius: "10px"
+                    borderRadius: "5px",
+                    fontSize: "6vw"
                 }}>
-                    <CgArrowsExchangeAltV size={30} />
+                    <CgArrowsExchangeAltV />
                 </div>
-                <p>Exchange</p>
+                <p style={{ fontSize: "3vw" }}>Exchange</p>
             </div>
             <div style={{
                 flex: 1,
@@ -76,13 +76,13 @@ const FixedBar = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 gap: ".4rem",
-                fontSize: "1.1rem",
                 fontWeight: "500",
                 cursor: "pointer",
-                color: "#a8a8a8"
+                color: "#a8a8a8",
+                fontSize: "6vw"
             }}>
-                <BiBarChartAlt2 size={30} />
-                <p>History</p>
+                <BiBarChartAlt2 />
+                <p style={{ fontSize: "3vw" }}>History</p>
             </div>
             <div style={{
                 flex: 1,
@@ -90,13 +90,13 @@ const FixedBar = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 gap: ".4rem",
-                fontSize: "1.1rem",
                 fontWeight: "500",
                 cursor: "pointer",
-                color: "#a8a8a8"
+                color: "#a8a8a8",
+                fontSize: "6vw"
             }}>
-                <MdOutlineManageHistory size={30} />
-                <p>History</p>
+                <MdOutlineManageHistory />
+                <p style={{ fontSize: "3vw" }}>History</p>
             </div>
         </div>
     )

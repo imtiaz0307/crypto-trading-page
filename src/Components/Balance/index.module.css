@@ -15,7 +15,7 @@
 
 .left>h5 {
     color: #343a44;
-    font-size: 1.2rem;
+    font-size: 4vw;
 }
 
 .left>div>div {
@@ -32,15 +32,16 @@
     border: none;
     outline: none;
     border-radius: 10px;
+    font-size: 3vw;
 }
 
 .left>div>div>h2 {
-    font-size: 2.3rem;
+    font-size: 8vw;
     font-weight: 500;
 }
 
 .left>div>div>h2>span {
-    font-size: 1.3rem;
+    font-size: 5vw;
 }
 
 .left>div>div:nth-child(2) {
@@ -49,14 +50,14 @@
 }
 
 .right {
-    height: 50px;
-    width: 50px;
+    height: 14vw;
+    width: 14vw;
     border-radius: 50%;
     background-color: #2f353f;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 8vw;
     color: #21c8d7;
     cursor: pointer;
 }
