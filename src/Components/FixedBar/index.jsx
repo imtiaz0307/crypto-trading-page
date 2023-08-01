@@ -11,7 +11,6 @@ const FixedBar = ({ fixedBarRef }) => {
             bottom: "0px",
             left: "10px",
             width: "calc(100% - 20px)",
-            background: "#171e2a71",
             borderRadius: "20px",
             padding: "1rem",
             display: "flex",
@@ -67,7 +66,7 @@ const FixedBar = ({ fixedBarRef }) => {
                     borderRadius: "2vw",
                     fontSize: "6vw"
                 }}>
-                    <CgArrowsExchangeAltV />
+                    <CgArrowsExchangeAltV style={{ boxShadow: "0 0 2px  #e1f8ff", borderRadius: "2vw" }} />
                 </div>
                 <p style={{ fontSize: "3vw" }}>Exchange</p>
             </div>
