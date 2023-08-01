@@ -1,14 +1,14 @@
 .container {
     display: flex;
     background-color: #18202e;
-    margin: 1rem;
+    margin: .5rem 1rem;
     color: white;
     border-radius: 10px;
 }
 
 .item {
     flex: 1;
-    aspect-ratio: 1;
+    aspect-ratio: 2/1.5;
     display: flex;
     flex-direction: column;
     justify-content: center;

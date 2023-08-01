@@ -30,12 +30,12 @@ const Portfolio = () => {
 
     return (
         <div>
-            <h6 style={{ color: "white", fontSize: "4vw", fontWeight: 600, padding: "1rem 1rem .3rem" }}>Portfolio</h6>
+            <h6 style={{ color: "white", fontSize: "4vw", fontWeight: 600, padding: ".2rem 1rem 0" }}>Portfolio</h6>
             <Swiper
                 slidesPerView={"auto"}
                 spaceBetween={10}
                 className="mySwiper"
-                style={{ padding: "1rem" }}
+                style={{ padding: ".5rem 1rem" }}
             >
                 {currenciesData.map(item => {
 

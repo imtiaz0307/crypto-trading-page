@@ -43,7 +43,7 @@ const CurrenciesList = () => {
     ]
     return (
         <div style={{
-            padding: "1rem 1rem .5rem"
+            padding: ".5rem 1rem .5rem"
         }}>
             <div style={{
                 display: "flex",
