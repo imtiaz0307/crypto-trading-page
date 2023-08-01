@@ -1,6 +1,6 @@
 .fixed__bar::before {
     content: "";
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.123), transparent);
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.123), transparent);
     border-radius: 20px;
     height: calc(100% + 4px);
     width: calc(100% + 4px);
@@ -12,7 +12,7 @@
 
 .fixed__bar::after {
     content: "";
-    background: #171e2a71;
+    background: #171e2aaf;
     border-radius: 20px;
     height: 100%;
     width: 100%;
@@ -20,5 +20,5 @@
     top: 0;
     left: 0;
     z-index: -1;
-    box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.075);
+    backdrop-filter: blur(10px);
 }

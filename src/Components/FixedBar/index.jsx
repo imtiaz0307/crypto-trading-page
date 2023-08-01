@@ -15,7 +15,7 @@ const FixedBar = ({ fixedBarRef }) => {
             padding: "1rem",
             display: "flex",
             gap: "1rem",
-            zIndex: 999999
+            zIndex: 999999,
         }} ref={fixedBarRef} className="fixed__bar">
             <div style={{
                 flex: 1,

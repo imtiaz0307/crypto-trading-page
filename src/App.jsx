@@ -13,11 +13,11 @@ const App = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setHeight(window.innerHeight - fixedBarRef?.current?.offsetHeight)
+      setHeight(fixedBarRef?.current?.offsetHeight)
     }
   }, [])
   return (
-    <div style={{ maxHeight: `${height}px`, overflowY: "auto" }}>
+    <div style={{ paddingBottom: `${height}px` }}>
       <Navbar />
       <Balance />
       <Actions />
