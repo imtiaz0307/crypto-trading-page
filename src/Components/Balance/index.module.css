@@ -49,14 +49,14 @@
 }
 
 .right {
-    height: 14vw;
-    width: 14vw;
+    height: 11vw;
+    width: 11vw;
     border-radius: 50%;
     background-color: #2f353f;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 8vw;
+    font-size: 7vw;
     color: #21c8d7;
     cursor: pointer;
 }

@@ -51,8 +51,8 @@ const CurrenciesList = () => {
                 alignItems: "center",
                 marginBottom: ".4rem"
             }}>
-                <h6 style={{ color: "white", fontSize: "5vw", fontWeight: 600 }}>Market Trends</h6>
-                <p style={{ color: "white", fontSize: "5vw", fontWeight: 500 }}>See All</p>
+                <h6 style={{ color: "white", fontSize: "4vw", fontWeight: 600 }}>Market Trends</h6>
+                <p style={{ color: "white", fontSize: "4vw", fontWeight: 500 }}>See All</p>
             </div>
             <div style={{
                 padding: ".5rem",
@@ -68,14 +68,14 @@ const CurrenciesList = () => {
                             justifyContent: "space-between"
                         }}>
                             <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                                <img src={item.icon} alt={item.abbr} style={{ width: "14vw", height: "14vw", objectFit: "cover" }} />
+                                <img src={item.icon} alt={item.abbr} style={{ width: "11vw", height: "11vw", objectFit: "cover" }} />
                                 <div>
-                                    <h2 style={{ fontSize: "4.5vw", fontWeight: 900 }}>{item.name}</h2>
+                                    <h2 style={{ fontSize: "4vw", fontWeight: 600 }}>{item.name}</h2>
                                     <span style={{ color: "#a8a8a8", fontSize: "3.7vw" }}>{item.abbr}</span>
                                 </div>
                             </div>
                             <div>
-                                <h2 style={{ fontSize: "5vw", fontWeight: 900 }}>{item.value}</h2>
+                                <h2 style={{ fontSize: "4vw", fontWeight: 700 }}>{item.value}</h2>
                                 <span style={{ color: "#21c8d7", fontSize: "3vw" }}>{item.increment}</span>
                             </div>
                         </div>

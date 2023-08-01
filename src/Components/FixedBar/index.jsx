@@ -2,6 +2,7 @@ import { BiHomeSmile, BiBarChartAlt2 } from "react-icons/bi"
 import { BsWallet2 } from "react-icons/bs"
 import { CgArrowsExchangeAltV } from "react-icons/cg"
 import { MdOutlineManageHistory } from "react-icons/md"
+import "./index.css"
 
 const FixedBar = ({ fixedBarRef }) => {
     return (
@@ -10,13 +11,13 @@ const FixedBar = ({ fixedBarRef }) => {
             bottom: "0px",
             left: "10px",
             width: "calc(100% - 20px)",
-            background: "#171e2a",
+            background: "#171e2a71",
             borderRadius: "20px",
             padding: "1rem",
             display: "flex",
             gap: "1rem",
             zIndex: 999999
-        }} ref={fixedBarRef}>
+        }} ref={fixedBarRef} className="fixed__bar">
             <div style={{
                 flex: 1,
                 display: "flex",
@@ -63,7 +64,7 @@ const FixedBar = ({ fixedBarRef }) => {
                     alignItems: "center",
                     scale: "2.5",
                     transformOrigin: "bottom center",
-                    borderRadius: "5px",
+                    borderRadius: "2vw",
                     fontSize: "6vw"
                 }}>
                     <CgArrowsExchangeAltV />

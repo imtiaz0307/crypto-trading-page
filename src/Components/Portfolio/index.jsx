@@ -109,7 +109,7 @@ const Portfolio = () => {
                             padding: 0,
                             overflow: "hidden",
                             cursor: "pointer",
-                            width: "39vw",
+                            width: "35vw",
                             transition: "250ms"
                         }}>
 
@@ -117,7 +117,7 @@ const Portfolio = () => {
                                 display: "flex",
                                 alignItems: "center",
                                 gap: ".5rem",
-                                padding: ".75rem .75rem 0"
+                                padding: ".5rem .75rem 0"
                             }}>
                                 <img src={item.img} alt={item.value} style={{ width: "7vw" }} />
                                 <h5 style={{ fontSize: "3.9vw", fontWeight: "900", marginBottom: "0", color: "white" }}>{item.name}</h5>
@@ -131,12 +131,12 @@ const Portfolio = () => {
                                 justifyContent: "space-between",
                                 gap: "1rem"
                             }}>
-                                <h4 style={{ fontSize: "5vw" }}>$8,322</h4>
+                                <h4 style={{ fontSize: "4vw" }}>$8,322</h4>
                                 <div
                                     style={{
                                         display: "flex",
                                         color: "#21c8d7",
-                                        fontSize: "2.6vw",
+                                        fontSize: "2.2vw",
                                         alignItems: "center",
                                         gap: ".2rem"
                                     }}>
@@ -160,7 +160,7 @@ const Portfolio = () => {
                                 }}>$233</div>
                                 <span style={{ color: "#a8a8a8" }}>since 24h</span>
                             </div>
-                            <div style={{ width: "100%", marginTop: "-4rem" }}>
+                            <div style={{ width: "100%", marginTop: "-4.5rem" }}>
                                 <Chart id="chart-currently" options={Currentlysale.options} series={Currentlysale.series} type="area" height={"140px"} width={"118%"} style={{
                                     transform: "translateX(-8%) translateY(46px)",
                                 }} />
