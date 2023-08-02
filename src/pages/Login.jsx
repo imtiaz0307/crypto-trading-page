@@ -13,7 +13,7 @@ const LoginPage = () => {
             color: "white"
         }}>
             <h4 className='logo'>ABC</h4>
-            <form onSubmit={e => {
+            <form style={{ maxWidth: "450px", margin: "0 auto", width: "100%" }} onSubmit={e => {
                 e.preventDefault()
                 navigate('/')
             }}>
@@ -39,7 +39,7 @@ const LoginPage = () => {
                 </div>
                 <button className='submit_btn'>Login</button>
             </form>
-            <p style={{ marginTop: '10px', textAlign: "center", marginTop: "1rem", fontSize: ".8rem", color: "#a8a8a8" }}>
+            <p style={{ textAlign: "center", marginTop: "1rem", fontSize: ".8rem", color: "#a8a8a8" }}>
                 Don't have an account? <Link to="/signup" style={{ color: "white" }}> Sign up</Link>
             </p>
         </div >

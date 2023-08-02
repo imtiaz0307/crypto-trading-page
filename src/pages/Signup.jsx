@@ -12,7 +12,7 @@ const SignupPage = () => {
             color: "white"
         }}>
             <h4 className='logo'>ABC</h4>
-            <form>
+            <form style={{ maxWidth: "450px", margin: "0 auto", width: "100%" }}>
                 <div style={{
                     display: "flex",
                     flexDirection: "column",
@@ -55,7 +55,7 @@ const SignupPage = () => {
                 </div>
                 <button className='submit_btn'>Sign Up</button>
             </form>
-            <p style={{ marginTop: '10px', textAlign: "center", marginTop: "1rem", fontSize: ".8rem", color: "#a8a8a8" }}>
+            <p style={{ textAlign: "center", marginTop: "1rem", fontSize: ".8rem", color: "#a8a8a8" }}>
                 Already have an account? <Link to="/login" style={{ color: "white" }}> Login</Link>
             </p>
         </div >
