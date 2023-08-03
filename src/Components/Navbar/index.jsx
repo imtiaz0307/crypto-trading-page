@@ -1,11 +1,16 @@
 import styles from "./index.module.css"
 import { GoSortAsc } from "react-icons/go"
 import { IoMdNotificationsOutline } from "react-icons/io"
+import { useNavigate } from "react-router-dom"
 
 const Navbar = () => {
+    const navigate = useNavigate()
     return (
         <nav className={styles.nav}>
-            <div className={styles.left}>
+            <div className={styles.left} onClick={() => {
+                localStorage.removeItem("token")
+                navigate("/login")
+            }}>
                 <img src="https://dudeproducts.com/cdn/shop/articles/gigachad_1068x.jpg?v=1667928905" alt="gc" />
                 <h5>Giga Chad</h5>
             </div>
