@@ -85,7 +85,8 @@ const LoginPage = () => {
                     flexDirection: "column",
                     marginBottom: "1.3rem",
                     gap: ".4rem",
-                    fontSize: "1rem", position: "relative"
+                    fontSize: "1rem",
+                    position: "relative"
                 }}>
                     <label htmlFor="password">Password</label>
                     <input type={passwordType} name="password" id="password" placeholder='Enter your password' className='input_field' value={password} onChange={e => setPassword(e.target.value)} required />
