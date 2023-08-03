@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { encryptData } from "../helpers/encryption_decryption/Encryption";
 import { decryptData } from "../helpers/encryption_decryption/Decryption";
 import axios from "axios";
+import Loader from "../Components/Loader";
 
 const LoginPage = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [showLoader, setShowLoader] = useState(false);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -21,6 +23,7 @@ const LoginPage = () => {
 
     const loginHandler = (e) => {
         e.preventDefault()
+        setShowLoader(true)
         const credentials = {
             email, password
         }
@@ -33,16 +36,20 @@ const LoginPage = () => {
             .then((res) => {
                 const decrypted = decryptData(res.data.data)
                 localStorage.setItem("token", decrypted.token)
+                setShowLoader(false)
                 navigate("/")
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                setShowLoader(false)
+            })
     }
 
     return (
         <div style={{
             display: "flex",
             flexDirection: 'column',
-            justifyContent: "center",
+            justifyContent: "space-around",
             minHeight: `${window.innerHeight}px`,
             padding: "1rem",
             color: "white"
@@ -69,11 +76,18 @@ const LoginPage = () => {
                     <label htmlFor="password">Password</label>
                     <input type="password" name="password" id="password" placeholder='Enter your password' className='input_field' value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
-                <button className='submit_btn'>Login</button>
+                <button className='submit_btn'>
+                    Login
+                </button>
+                {
+                    showLoader
+                    &&
+                    <Loader />
+                }
+                <p style={{ textAlign: "center", marginTop: "1rem", fontSize: ".8rem", color: "#a8a8a8" }}>
+                    Don't have an account? <Link to="/signup" style={{ color: "white" }}> Sign up</Link>
+                </p>
             </form>
-            <p style={{ textAlign: "center", marginTop: "1rem", fontSize: ".8rem", color: "#a8a8a8" }}>
-                Don't have an account? <Link to="/signup" style={{ color: "white" }}> Sign up</Link>
-            </p>
         </div >
     );
 };
