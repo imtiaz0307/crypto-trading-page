@@ -29,7 +29,7 @@ const LoginPage = () => {
         e.preventDefault()
 
         if (!email || !password) {
-            setLoginError("Invalid Credentials")
+            setLoginError("Invalid Email or Password")
             return
         }
         setShowLoader(true)
@@ -43,18 +43,17 @@ const LoginPage = () => {
             data: encrypted
         })
             .then((res) => {
-                if (res.data.message) {
-                    setLoginError("Invalid Credentials")
-                    setShowLoader(false)
-                } else {
-                    const decrypted = decryptData(res.data.data)
-                    localStorage.setItem("token", decrypted.token)
-                    setShowLoader(false)
-                    navigate("/")
-                }
+                const decrypted = decryptData(res.data.data)
+                localStorage.setItem("token", decrypted.token)
+                setShowLoader(false)
+                navigate("/")
             })
             .catch(err => {
-                console.log(err)
+                const decrypted = decryptData(err.response.data.data)
+                if (decrypted.message.includes("user not found.")) {
+                    setLoginError("Invalid Credentials")
+                    setShowLoader(false)
+                }
                 setShowLoader(false)
             })
     }

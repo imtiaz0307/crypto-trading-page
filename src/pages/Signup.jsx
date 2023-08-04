@@ -8,6 +8,7 @@ import logo from "../../public/logo.png"
 import { FaXmark } from "react-icons/fa6"
 import { BiCheck } from "react-icons/bi"
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
+import { decryptData } from "../helpers/encryption_decryption/Decryption";
 
 const SignupPage = () => {
     const navigate = useNavigate()
@@ -73,7 +74,7 @@ const SignupPage = () => {
         }
 
         if (!validatePassword(password)) {
-            setPasswordError("Password must contain at least 8 characters long and a capital/small character, a number, and a special character")
+            setPasswordError("Password must be at least 8 characters long and should contain a capital, small, special character and a number.")
             return;
         } else {
             setPasswordError("")
@@ -100,13 +101,18 @@ const SignupPage = () => {
             data: encrypted
         })
             .then((res) => {
-                if (res?.data?.successMessage) {
+                const decrypted = decryptData(res.data.data)
+                if (decrypted.message.includes("New User Created Successfully!")) {
                     setIsSignedUp(true)
+                    setShowLoader(false)
                 }
                 setShowLoader(false)
             })
             .catch(err => {
-                console.log(err)
+                const decrypted = decryptData(err.response.data.data)
+                if (decrypted.message === "This user alerdy exist please login to proceed") {
+                    setEmailError("Email Taken.")
+                }
                 setShowLoader(false)
             })
     }
