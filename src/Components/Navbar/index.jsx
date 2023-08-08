@@ -2,17 +2,23 @@ import styles from "./index.module.css"
 import { GoSortAsc } from "react-icons/go"
 import { IoMdNotificationsOutline } from "react-icons/io"
 import { useNavigate } from "react-router-dom"
+import { savedDataString } from "../../helpers/UserDetails/UserDetails"
 
 const Navbar = () => {
     const navigate = useNavigate()
+    const savedDataProfile = JSON.parse(savedDataString);
+    const fullName = savedDataProfile.data.fullName;
+    const ProfileImg = savedDataProfile?.data?.profile_image?.url;
+
+
     return (
         <nav className={styles.nav}>
             <div className={styles.left} onClick={() => {
                 localStorage.removeItem("token")
                 navigate("/login")
             }}>
-                <img src="https://dudeproducts.com/cdn/shop/articles/gigachad_1068x.jpg?v=1667928905" alt="gc" />
-                <h5>Giga Chad</h5>
+                <img src={ProfileImg} alt="gc" />
+                <h5>{fullName}</h5>
             </div>
             <div className={styles.right}>
                 <GoSortAsc />

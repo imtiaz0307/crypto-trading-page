@@ -7,6 +7,7 @@ import axios from "axios";
 import Loader from "../Components/Loader";
 import logo from "../../public/logo.png"
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import AuthSession from "../helpers/Session/AuthSession";
 
 const LoginPage = () => {
     const navigate = useNavigate()
@@ -42,14 +43,25 @@ const LoginPage = () => {
         axios.post(`https://itsapp-3606ea51973b.herokuapp.com/api/users/login`, {
             data: encrypted
         })
-            .then((res) => {
+            .then(async (res) => {
                 const decrypted = decryptData(res.data.data)
-                localStorage.setItem("token", decrypted.token)
-                setShowLoader(false)
-                navigate("/")
+                // localStorage.setItem("token", decrypted.token)
+                localStorage.setItem("token", decrypted?.data)
+                const result = await AuthSession();
+                console.log(result)
+                if (result) {
+                    setShowLoader(false)
+                    navigate("/")
+                }
+                else{
+                    setShowLoader(false)
+                    window.location.reload();
+                    navigate("/login")
+                }
             })
             .catch(err => {
                 const decrypted = decryptData(err.response.data.data)
+                // console.log(decrypted, "error from login")
                 if (decrypted.message.includes("user not found.")) {
                     setLoginError("Invalid Credentials")
                     setShowLoader(false)

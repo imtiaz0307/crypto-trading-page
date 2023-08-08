@@ -1,8 +1,12 @@
 import styles from "./index.module.css"
 import { FaArrowTrendUp } from "react-icons/fa6"
 import { TbEyeHeart } from "react-icons/tb"
+import { savedDataString } from "../../helpers/UserDetails/UserDetails";
 
 const Balance = () => {
+    const savedDataProfile = JSON.parse(savedDataString);
+    const totalBalance = savedDataProfile?.data?.totalbalance || " ";
+    const userProfit = savedDataProfile?.data?.profit || " " || "No Profit";
     return (
         <div className={styles.balance}>
             <div className={styles.left}>
@@ -11,7 +15,8 @@ const Balance = () => {
                     <div>
                         <h2>
                             <span>$ </span>
-                            4,562.<span>00</span>
+                            {totalBalance}
+                            {/* <span>00</span> */}
                         </h2>
                         <select>
                             <option value="USD">USD</option>
@@ -20,7 +25,7 @@ const Balance = () => {
                         </select>
                     </div>
                     <div>
-                        <span>+5.23%</span>
+                        <span>{userProfit}%</span>
                         <FaArrowTrendUp />
                     </div>
                 </div>
