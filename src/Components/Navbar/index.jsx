@@ -15,6 +15,7 @@ const Navbar = () => {
         <nav className={styles.nav}>
             <div className={styles.left} onClick={() => {
                 localStorage.removeItem("token")
+                localStorage.removeItem("mySession")
                 navigate("/login")
             }}>
                 <img src={ProfileImg} alt="gc" />

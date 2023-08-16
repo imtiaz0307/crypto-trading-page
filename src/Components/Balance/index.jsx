@@ -15,7 +15,7 @@ const Balance = () => {
                     <div>
                         <h2>
                             <span>$ </span>
-                            {totalBalance}
+                            {totalBalance.toFixed(2)}
                             {/* <span>00</span> */}
                         </h2>
                         <select>
@@ -25,7 +25,7 @@ const Balance = () => {
                         </select>
                     </div>
                     <div>
-                        <span>{userProfit}%</span>
+                        <span>{userProfit.toFixed(2)}%</span>
                         <FaArrowTrendUp />
                     </div>
                 </div>
