@@ -2,6 +2,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Chart from "react-apexcharts"
 import { FaArrowTrendUp } from 'react-icons/fa6';
+import React, { useState, useEffect, useRef } from 'react';
+import { formatDateTime } from '../../helpers/DataFormat/DateFormat';
+import { savedDataString } from './../../helpers/UserDetails/UserDetails';
+import fetchAllTradeOption from './../../helpers/getApis/getAllOptions';
+// import FixedBar from './../FixedBar/index';
+import fetchPastUserTrade from '../../helpers/getApis/pastALLinvest';
 
 const Portfolio = () => {
     const currenciesData = [
@@ -26,7 +32,63 @@ const Portfolio = () => {
             color: "#26a17b",
             graph_values: [8, 9, 16, 7, 20, 8, 12, 14]
         },
+        {
+            name: "USDT",
+            img: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/512/Tether-USDT-icon.png",
+            value: "usdt",
+            color: "#26a17b",
+            graph_values: [8, 9, 16, 7, 20, 8, 12, 14]
+        },
     ]
+    const [tradeOptions, setTradeOptions] = useState([]);
+    const [selectedOption, setSelectedOption] = useState("");
+    const [pastUserTradeData, setPastUserTradeData] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            const decryptedData = await fetchAllTradeOption();
+            setTradeOptions(decryptedData.data);
+            console.log(decryptedData.data, "Trade Options");
+        }
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        async function fetchData() {
+            let startDate = new Date();
+            let endDate = new Date();
+            startDate.setDate(startDate.getDate() - 7);
+
+            if (startDate) {
+                startDate = startDate.toISOString().split('T')[0];
+            }
+
+            if (endDate) {
+                endDate = endDate.toISOString().split('T')[0];
+            }
+            
+            const fetchedData = [];
+
+            // Fetch past user trade data for each trade option
+            for (const tradeOption of tradeOptions) {
+                const tradeId = tradeOption._id;
+                const response = await fetchPastUserTrade(tradeId, startDate, endDate);
+                console.log(response, "res from cur file for trade option", tradeOption?.name);
+
+                if (response?.data?.investmentFound && Array.isArray(response.data.investmentFound)) {
+                    // const pastUserTradeData = response.data.investmentFound;
+                    // setPastUserTradeData(prevData => [...prevData, { tradeOption, pastUserTradeData }]);
+                    fetchedData.push({ tradeOption, pastUserTradeData: response.data.investmentFound });
+                } else {
+                    console.log(`No data found for trade option ${tradeOption.name}`);
+                }
+            }
+            setPastUserTradeData(fetchedData); 
+        }
+
+        fetchData();
+    }, [tradeOptions]);
+
 
     return (
         <div>
@@ -37,13 +99,22 @@ const Portfolio = () => {
                 className="mySwiper"
                 style={{ padding: ".5rem 1rem" }}
             >
-                {currenciesData.map(item => {
+                {currenciesData.map((item, index) => {
+                    const tradeOption = tradeOptions.find(option => option._id === item._id) || {};
+                    // item.investment_name._id === selectedOption
+                    // || item.graph_values
+                    const investment = pastUserTradeData.filter(data => data?.investment_name === tradeOption?._id);
+                    const pastInvestmentDataV = pastUserTradeData?.map(item => item?.payment);
+                    console.log(pastInvestmentDataV, "data aa");
 
+                    if (pastInvestmentDataV.length === 0) {
+                        return null; // Skip rendering if there's no corresponding investment
+                    }
                     const Currentlysale = {
                         series: [
                             {
-                                name: "crypto price",
-                                data: item.graph_values,
+                                name: "Past Investment",
+                                data: pastInvestmentDataV.map(data => data.payment) || item.graph_values,
                             },
                         ],
                         options: {
@@ -120,7 +191,11 @@ const Portfolio = () => {
                                 padding: ".5rem .75rem 0"
                             }}>
                                 <img src={item.img} alt={item.value} style={{ width: "7vw" }} />
-                                <h5 style={{ fontSize: "3.9vw", fontWeight: "900", marginBottom: "0", color: "white" }}>{item.name}</h5>
+                                {tradeOptions?.length > 0 && (
+                                    <h5 style={{ fontSize: "3.9vw", fontWeight: "900", marginBottom: "0", color: "white" }}>
+                                        {tradeOption.name ? tradeOption.name.toUpperCase() : ""}
+                                    </h5>
+                                )}
                             </div>
                             <div style={{
                                 color: "white",
